@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pantry</title>
+</head>
+<body>
+    <h1>My Pantry</h1>
+    <ul>
+        <% pantry.forEach(item => { %>
+            <li>
+                <%= item.name %>
+                <form action="/pantry/<%= item._id %>?_method=PUT" method="POST">
+                    <input type="text" name="name" value="<%= item.name %>">
+                    <button type="submit">Update</button>
+                </form>
+                <form action="/pantry/<%= item._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <form action="/pantry" method="POST">
+        <input type="text" name="name" placeholder="New Item">
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
+

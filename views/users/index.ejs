@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Explore Our Community</h1>
+    <ul>
+        <% users.forEach(user => { %>
+            <li><a href="/users/<%= user._id %>/foods"><%= user.username %></a></li>
+        <% }) %>
+    </ul>
+</body>
+</html>
